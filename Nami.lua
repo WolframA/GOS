@@ -44,7 +44,6 @@
   local myOrigin = GetOrigin(myHero)
   local myScreenpos = WorldToScreen(1,myOrigin.x,myOrigin.y,myOrigin.z)
   local enemiesAround = EnemiesAround(GetOrigin(myHero),3500)
-  DrawCircle(myOrigin.x,myOrigin.y,myOrigin.z,300,0,0,0xffffffff)
   if enemiesAround > 0 and Config.Nearby then
 	DrawTextSmall(string.format("Enemies Near  = %d",enemiesAround),myScreenpos.x,myScreenpos.y-20,ARGB(255,255,255/enemiesAround,255/enemiesAround))	
   end
@@ -71,7 +70,7 @@
 		-- Check allies for missing hp, cast W if they aren't max. (Plan to upgrade)
 		for _,v in pairs(GetAllyHeroes()) do 
 			if CanUseSpell(myHero, _W) == READY then
-				if IsInDistance(v,725) and IsObjectAlive(v) and (GetCurrentHP(v) < GetMaxHP(v))  then
+				if IsInDistance(v,725) and IsObjectAlive(v) and ((GetCurrentHP(v) * 1.05) < GetMaxHP(v))  then
 					CastTargetSpell(v,_W)
 				end
 			end

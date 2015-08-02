@@ -84,7 +84,7 @@
 		if CanUseSpell(myHero, _R) == READY and IsInDistance(myTarget, 800) and Config.R then
 			myRpred = GetPredictionForPlayer(myOrigin,myTarget,GetMoveSpeed(myTarget),850,950,GetCastRange(myHero,_Q),250,false,false)
 	    end
-		if myRpred and myRpred.HitChance == 1 and Config.R IsInDistance(myTarget, 800) then
+		if myRpred and myRpred.HitChance == 1 and Config.R and IsInDistance(myTarget, 800)then
 				 CastSkillShot(_R,myRpred.PredPos)
 		end
 		  

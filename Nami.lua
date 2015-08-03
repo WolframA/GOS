@@ -75,7 +75,7 @@
 			-- Check allies for missing hp, cast W if they aren't max. (Plan to upgrade)
 			for _,v in pairs(GetAllyHeroes()) do 
 				if CanUseSpell(myHero, _W) == READY then
-					if IsInDistance(v,725) and IsObjectAlive(v) and ((GetCurrentHP(v) * 1.05) < GetMaxHP(v))  then
+					if IsInDistance(v,725) and IsObjectAlive(v) and (((GetCurrentHP(v) * 1.2) < GetMaxHP(v))  then
 						CastTargetSpell(v,_W)
 					end
 				end
